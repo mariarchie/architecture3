@@ -1,25 +1,11 @@
+public class Square extends Rectangle {
 
-public class Square extends Figure implements Print {
-    private int a = UserInterface.array[0];
-
-    @Override
-    public double calculatePerimeter()
-    {
-        double P = a*4;
-        return P;
+    Square(int a) {
+        super(a, a);
     }
 
     @Override
-    public double calculateArea()
-    {
-        double S = a*a;
-        return S;
+    public void print() {
+        System.out.println("Square: perimeter: " + calculatePerimeter() + " area: " + calculateArea());
     }
-
-    @Override
-    public void print()
-    {
-        System.out.println("Square: side a: " + a + " perimeter: " + calculatePerimeter() + " area: " + calculateArea());
-    }
-    
 }

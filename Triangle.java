@@ -1,7 +1,13 @@
 public class Triangle extends Figure implements Print {
-    private int a = UserInterface.array[0];
-    private int b = UserInterface.array[1];
-    private int c = UserInterface.array[2];
+    private int a;
+    private int b;
+    private int c;
+
+    Triangle(int a, int b, int c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
 
     @Override
     public double calculatePerimeter() {
@@ -18,8 +24,7 @@ public class Triangle extends Figure implements Print {
 
     @Override
     public void print() {
-        System.out.println("Triangle: side a: " + a + " side b: " + b + " side c: " + c + " perimeter: "
-                + calculatePerimeter() + " area: " + calculateArea());
+        System.out.printf("Triangle: perimeter: %s, area = %s\n", calculatePerimeter(), calculateArea());
     }
 
 }

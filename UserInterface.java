@@ -1,38 +1,32 @@
-
 import java.util.Scanner;
 
 public class UserInterface {
-
-    public static int[] array = new int[5];
-
-    static int[] userInterface() {
-        try (Scanner scanner = new Scanner(System.in)) {
-            System.out.println("Enter sides' (radius for circle) dimensions splitted by a space");
-            String s[] = scanner.nextLine().split(" ");
-            for (int i = 0; i < s.length; i++) {
-                array[i] = Integer.parseInt(s[i]);
+    static void userInterface() {
+        try (Scanner name = new Scanner(System.in)) {
+            System.out.println("Pls, enter your shape: circle / rectangle / square / triangle");
+            String input = name.nextLine();
+            switch (input) {
+                case "circle":
+                    System.out.println("Circle");
+                    Main.inputCircle();
+                    break;
+                case "rectangle":
+                    System.out.println("Rectangle");
+                    Main.inputRectangle();
+                    break;
+                case "square":
+                    System.out.println("Square");
+                    Main.inputSquare();
+                    break;
+                case "triangle":
+                    System.out.println("Triangle");
+                    Main.inputTriangle();
+                    break;
+                default:
+                    System.out.println("Incorrect name, pls, try again");
+                    userInterface();
+                    break;
             }
-            if (array.length == 1) {
-                new Circle();
-
-            }
-            if (array.length == 2) {
-                if (array[0] == array[1]) {
-                    new Square();
-                } 
-                new Rectangle();
-            }
-
-            if (array.length == 3) {
-                new Triangle();
-            }
-
-            return array;
-
-        } catch (NumberFormatException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         }
-        return null;
     }
 }
